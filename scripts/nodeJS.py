@@ -7,8 +7,8 @@ class node():
 
   def install(self):
     if self.package == 'deb':
-      os.system(f'curl -sL https://deb.nodesource.com/setup_{self.version}.x | sudo -E bash - && sudo apt install -y nodejs')
+      os.system(f'curl -sL https://deb.nodesource.com/setup_{self.version}.x | bash - && apt install -y nodejs')
     elif self.package == 'rpm':
-      os.system(f'curl -sL https://rpm.nodesource.com/setup_{self.version}.x | sudo bash - && yum install -y nodejs')
+      os.system(f'curl -sL https://rpm.nodesource.com/setup_{self.version}.x | bash - && yum install -y nodejs')
     elif self.package == 'pacman':
-      os.system('sudo pacman -Syu nodejs npm')
+      os.system('pacman -Syu nodejs npm')

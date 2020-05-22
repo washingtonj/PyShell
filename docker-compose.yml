@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  ubuntu:
+    image: ubuntu
+    container_name: ubuntu
+    volumes: 
+      - ./:/scritp  
+    stdin_open: true
+    tty: true
+  centos: 
+    image: centos
+    container_name: centos
+    volumes: 
+      - ./:/script
+    stdin_open: true
+    tty: true
+  debian:
+    image: debian
+    container_name: debian
+    volumes: 
+      - ./:/script
+    stdin_open: true
+    tty: true

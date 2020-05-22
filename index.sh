@@ -6,7 +6,8 @@ echo "for first, let's update you dependecies and install python for run other s
 
 # Update repos and install python for run other scripts.
 echo "Insert your password for update deps"
-sudo apt update && which python3 || sudo apt install python3 -y
+apt update && which python3 lsb-release || apt install python3 lsb-release whiptail -y 
+yum update && which python3 lsb-release || yum -y install python3 redhat-lsb newt 
 
 echo "Let's start a python script for install other applications"
 python3 main.py
