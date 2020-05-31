@@ -3,6 +3,7 @@ import subprocess
 
 from scripts.docker import docker as DockerInstall
 from scripts.nodeJS import node as NodeInstall
+from scripts.ohmyzsh import zsh as ZshInstall
 
 distro = subprocess.check_output(
     'lsb_release -is', shell=True).decode('utf-8').lower()
@@ -34,7 +35,8 @@ choice = subprocess.check_output('whiptail'
                                  ' --fb "Select a option for install" 20 90  6'
                                  ' "1" "Docker Engine - Dockerize your services and Apps " "OFF" '
                                  ' "2" "Docker Compose - Run multi containers using Docker-compose file " "OFF" '
-                                 ' "3" "NodeJS - Executes JavaScript code outside of a web browser. " "OFF" 3>&1 1>&2 2>&3 ', shell=True).decode('utf-8')
+                                 ' "3" "NodeJS - Executes JavaScript code outside of a web browser. " "OFF" '
+                                 ' "4" "Oh My ZSH - Adicione themas e personalize seu terminal. " "OFF" 3>&1 1>&2 2>&3 ', shell=True).decode('utf-8')
 
 
 for value in choice.split('"'):
@@ -52,3 +54,11 @@ for value in choice.split('"'):
             version = '12'
         node = NodeInstall(pkgmgmt, version)
         node.install()
+
+    elif value == "4":
+        ohmyzsh = ZshInstall(pkgmgmt)
+        ohmyzsh.install()
+        zshoption = input('Do you want to restore the settings? (y/n):  ')
+        if zshoption == "y":
+            folder = input('Insert a restore folder: \n')
+            ohmyzsh.restore(folder)

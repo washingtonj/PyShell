@@ -14,7 +14,8 @@ class docker:
                 'apt install apt-transport-https ca-certificates curl wget gnupg-agent software-properties-common -y')
 
             print('Adding Docker’s official GPG key')
-            os.system(f"curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -")
+            os.system(
+                f"curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -")
 
             print('Adding docker repository')
             os.system('add-apt-repository'
