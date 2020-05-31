@@ -18,4 +18,4 @@ class zsh:
     def restore(self, folder):
         os.system(f'cp {folder}/.bashrc ~/')
         os.system(f'cp {folder}/.zshrc ~/')
-        os.system(f'cp -r {folder}/themes/ ~/.oh-my-zsh/themes')
+        os.system(f'cp -r {folder}/themes/* ~/.oh-my-zsh/themes')
