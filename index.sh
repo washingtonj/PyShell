@@ -10,4 +10,4 @@ apt update && which python3 lsb-release || apt install curl python3 lsb-release 
 yum update && which python3 lsb-release || yum -y install curl python3 redhat-lsb newt 
 
 echo "Let's start a python script for install other applications"
-python3 main.py
+python3 index.py

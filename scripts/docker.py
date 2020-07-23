@@ -3,7 +3,7 @@ import os
 
 class docker:
     def __init__(self, distro, pkgMgmt):
-        self.distro = distro
+        self.distro = distro.lower()
         self.pkgMgmt = pkgMgmt
 
     def engine(self):
@@ -18,10 +18,8 @@ class docker:
                 f"curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -")
 
             print('Adding docker repository')
-            os.system('add-apt-repository'
-                      f' "deb [arch=amd64] https://download.docker.com/linux/{self.distro}'
-                      ' $(lsb_release -cs)'
-                      ' stable"')
+            os.system(
+                f'add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/{self.distro} $(lsb_release -cs) stable"')
 
             print('Installing Docker')
             os.system(
@@ -76,3 +74,6 @@ class docker:
         os.system('chmod +x /usr/local/bin/docker-compose')
 
         print('Docker compose has been installed')
+
+
+ 

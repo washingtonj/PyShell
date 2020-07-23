@@ -1,5 +1,4 @@
-from bin.runner import stdin, stdout, stdcheck
-
+from whiptail.runner import stdcheck, stdin, stdout
 
 class whiptail:
     def __init__(self, widht, height):
@@ -33,8 +32,8 @@ class whiptail:
             items.append(
                 f'"{list(options.keys()).index(index)}" "{index} - {options.get(index)}" OFF ')
         test = "".join(items)
-        return stdout(
-            f'whiptail --title "{title}" --checklist --fb "{text}" {self.widht} {self.height} 12 {test} 3>&1 1>&2 2>&3')
+        return stdcheck(
+            f'whiptail --title "{title}" --checklist --fb "{text}" {self.widht} {self.height} 6 {test} 3>&1 1>&2 2>&3')
 
     def radiolist(self, title, text, options):
         items = []
@@ -43,7 +42,7 @@ class whiptail:
                 f'"{list(options.keys()).index(index)}" "{index} - {options.get(index)}" OFF ')
         test = "".join(items)
         return stdcheck(
-            f'whiptail --title "{title}" --radiolist --fb "{text}" {self.widht} {self.height} 12 {test} 3>&1 1>&2 2>&3')
+            f'whiptail --title "{title}" --radiolist "{text}" {self.widht} {self.height} 12 {test} 3>&1 1>&2 2>&3')
 
 
 

@@ -9,4 +9,4 @@ def stdout(command):
     return popen.stderr.read().decode("utf-8")
 
 def stdcheck(command):
-    return subprocess.check_output(command, shell=True).decode("utf-8")
+    return subprocess.check_output(command, shell=True).strip().decode("utf-8")
